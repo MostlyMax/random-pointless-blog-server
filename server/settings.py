@@ -14,7 +14,7 @@ from pathlib import Path
 from django.core.management.utils import get_random_secret_key
 import os
 
-MONGO_SECRET = os.environ.get('MONGO_SECRET')
+MONGO_SECRET_KEY = os.environ.get('MONGO_SECRET_KEY')
 MONGO_USERNAME = os.environ.get('MONGO_USERNAME')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -93,7 +93,7 @@ DATABASES = {
         'NAME': 'entrydata',
         'ENFORCE_SCHEMA': False,
         'CLIENT': {
-            'host': f'mongodb+srv://{MONGO_USERNAME}:{MONGO_SECRET}@entrydata.nrtep.mongodb.net/entrydata?retryWrites'
+            'host': f'mongodb+srv://{MONGO_USERNAME}:{MONGO_SECRET_KEY}@entrydata.nrtep.mongodb.net/entrydata?retryWrites'
                     f'=true&w=majority'
         }
     }
