@@ -12,6 +12,7 @@ djongo = "*"
 dnspython = "*"
 pymongo = "<=3.12.1"
 requests = "*"
+gunicorn = "*"
 
 [dev-packages]
 
