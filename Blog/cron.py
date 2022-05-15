@@ -6,6 +6,7 @@ from random import randint
 
 def get_random_feature():
     filter_entries = Entry.objects.filter(submitted_date__contains=datetime.today().date())
+    print(filter_entries)
     num_entries = len(filter_entries)
 
     random_entry = filter_entries[randint(0, num_entries - 1)]
