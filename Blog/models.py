@@ -1,11 +1,12 @@
 from django.db import models
+import datetime
 
 
 class Entry(models.Model):
     title = models.CharField(max_length=64)
     body = models.CharField(max_length=256, blank=True)
 
-    submitted_date = models.TimeField(auto_now_add=True)
+    submitted_date = models.TimeField(default=datetime.now)
 
     def __str__(self):
         return self.title
@@ -17,7 +18,7 @@ class Feature(models.Model):
     title = models.CharField(max_length=64)
     body = models.CharField(max_length=256, blank=True)
 
-    featured_date = models.TimeField(auto_now_add=True)
+    featured_date = models.TimeField(default=datetime.now)
 
     def __str__(self):
         return self.title
