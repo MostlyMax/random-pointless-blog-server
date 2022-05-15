@@ -1,11 +1,11 @@
 from .models import Entry, Feature
 from .serializers import FeatureSerializer
-from datetime import datetime
+from datetime import datetime, timedelta
 from random import randint
 
 
 def get_random_feature():
-    filter_entries = Entry.objects.filter(submitted_date__contains=datetime.today().date())
+    filter_entries = Entry.objects.filter(submitted_date__gte=datetime.utcnow())
     print(filter_entries)
     num_entries = len(filter_entries)
 
