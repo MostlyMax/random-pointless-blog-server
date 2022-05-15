@@ -1,5 +1,7 @@
 import requests
 import os
+from ..models import Entry, Feature
+from datetime import datetime
 
 RECAPTCHA_SECRET = os.environ.get('RECAPTCHA_SECRET')
 
@@ -27,3 +29,12 @@ def valid_recaptcha(request, captcha_rs):
         status = verify_rs.get("success", False)
 
         return status
+
+
+def get_random_feature_test():
+    filter_entries = Entry.objects.filter(submitted_date__contains=datetime.today().date())
+    print(filter_entries)
+
+
+if __name__ == "__main__":
+    get_random_feature_test()
