@@ -10,7 +10,7 @@ from .utils.validate import valid_recaptcha
 def entries(request):
     if request.method == 'GET':
         print(request.GET)
-        all_entries = Entry.objects.all()
+        all_entries = Entry.objects.order_by('-featured_date').all()
         serializer = EntrySerializer(all_entries, many=True)
 
         return JsonResponse(serializer.data, safe=False)
