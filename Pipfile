@@ -8,11 +8,11 @@ django = "*"
 djangorestframework = "*"
 django-cors-headers = "*"
 django-crontab = "*"
-djongo = "*"
 dnspython = "*"
 pymongo = "<=3.12.1"
 requests = "*"
 gunicorn = "*"
+djongo = "*"
 
 [dev-packages]
 

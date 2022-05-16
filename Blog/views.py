@@ -10,7 +10,7 @@ from .utils.validate import valid_recaptcha
 def entries(request):
     if request.method == 'GET':
         print(request.GET)
-        all_entries = Entry.objects.order_by('featured_date')
+        all_entries = Entry.objects.all()
         serializer = EntrySerializer(all_entries, many=True)
 
         return JsonResponse(serializer.data, safe=False)
@@ -40,7 +40,7 @@ def entry_detail(request, pk):
 @csrf_exempt
 def featured(request):
     if request.method == 'GET':
-        featured_entries = Feature.objects.all()
+        featured_entries = Feature.objects.all().order_by('-featured_date')
         amount = int(request.GET.get('amount', 0))
 
         print(request.GET)
