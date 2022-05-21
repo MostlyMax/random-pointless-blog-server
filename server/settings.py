@@ -59,9 +59,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOW_HEADERS = ['*']
+# CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = ['localhost', '127.0.0.1', 'rblog.protolemon.com']
 
 ROOT_URLCONF = 'server.urls'
 
@@ -143,6 +143,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRONJOBS = [
-    ('0 0 */1 * *', 'Blog.cron.get_random_feature')
+    ('0 0 */1 * *', 'Blog.cron.get_random_feature', '>>/var/log/cron_log.txt')
 ]
 
