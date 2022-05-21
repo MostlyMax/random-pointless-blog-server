@@ -143,6 +143,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRONJOBS = [
-    ('0 0 */1 * *', 'Blog.cron.get_random_feature', '>>/var/log/cron_log.txt')
+    # ('0 0 */1 * *', 'Blog.cron.get_random_feature', '>>/var/log/cron_log.txt')
+    ('*/5 * * * *', 'Blog.cron.get_random_feature', '>>/var/log/cron_log.txt')
 ]
 
